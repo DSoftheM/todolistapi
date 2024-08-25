@@ -1,41 +1,42 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { httpClient } from "../axios";
+import { Button, Flex, Input, Typography } from "antd";
 
 export function CreateTask() {
-  const qc = useQueryClient();
+	const qc = useQueryClient();
 
-  const createMutation = useMutation({
-    mutationFn: () => httpClient.post("/task/create", { name, description }),
-    onSuccess: () => {
-      qc.invalidateQueries({
-        queryKey: ["all-tasks"],
-      });
-    },
-  });
+	const createMutation = useMutation({
+		mutationFn: () => httpClient.post("/task/create", { title, text }),
+		onSuccess: () => {
+			qc.invalidateQueries({
+				queryKey: ["all-tasks"],
+			});
+		},
+	});
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+	const [title, setTitle] = useState("");
+	const [text, setText] = useState("");
 
-  return (
-    <div>
-      <label>
-        <p>Name</p>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <label>
-        <p>Description</p>
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </label>
-      <button onClick={() => createMutation.mutate()}>Create task</button>
-    </div>
-  );
+	return (
+		<Flex vertical gap={30} align="flex-start">
+			<label>
+				<Typography.Title level={5}>Название</Typography.Title>
+				<Input
+					type="text"
+					value={title}
+					onChange={(e) => setTitle(e.target.value)}
+				/>
+			</label>
+			<label>
+				<Typography.Title level={5}>Описание</Typography.Title>
+				<Input
+					type="text"
+					value={text}
+					onChange={(e) => setText(e.target.value)}
+				/>
+			</label>
+			<Button onClick={() => createMutation.mutate()}>Создать задачу</Button>
+		</Flex>
+	);
 }

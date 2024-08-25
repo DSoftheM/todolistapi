@@ -1,20 +1,29 @@
-﻿using System.Text.Json;
-using FluentValidation;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TodoList.Domain.Entity;
-using TodoList.Domain.Response;
 using TodoList.Domain.ViewModels;
-using TodoList.Service.Interfaces;
+using TodoList.Service.TaskService;
 
-namespace TodoList;
+namespace TodoList.Controllers;
 
 [Route("api/task")]
-class TaskController : Controller
+public class TaskController(ITaskService taskService) : Controller
 {
-    [HttpPost]
-    [Route("create")]
-    public async Task CreateTask([FromBody] CreateTaskViewModel taskDto)
+    [Route("getAll")]
+    public async Task<List<TaskEntity>> GetAll()
     {
-        return;
+        return await taskService.GetAll();
+    }
+
+    [Route("create")]
+    [HttpPost]
+    public async Task Create([FromBody] TaskEntity task)
+    {
+        await taskService.Create(task);        
+    }
+
+    [Route("delete/{id}")]
+    public async Task Delete(Guid id)
+    {
+        await taskService.Delete(id);
     }
 }
