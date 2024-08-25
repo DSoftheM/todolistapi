@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Todolist.DAL;
+using TodoList.Service.EmployeeService;
 using TodoList.Service.TaskService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddCors();
 
 builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>

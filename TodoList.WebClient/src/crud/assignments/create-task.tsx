@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
-import { httpClient } from "../axios";
+import { httpClient } from "../../axios";
 import { Button, Flex, Input, Typography } from "antd";
 
 export function CreateTask() {

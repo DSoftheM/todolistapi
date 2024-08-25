@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { httpClient } from "../axios";
+import { httpClient } from "../../axios";
 import { Button, Card, Flex, Typography } from "antd";
 
 type Task = {

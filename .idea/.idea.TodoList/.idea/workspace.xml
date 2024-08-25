@@ -10,17 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/EmployeeConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/EmployeeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/IEmployeeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employee-creation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList/Controllers/EmployeeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/20240818115848_initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/20240818115848_initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/TodoList.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/TodoList.DAL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/TaskEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/TaskEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/all-tasks-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/all-tasks-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/Controllers/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Controllers/TaskController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/AuthorConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/CourseConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/LessonConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/StudentConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/all-tasks-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/all-tasks-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/create-task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/create-task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +194,7 @@
       <workItem from="1723984660769" duration="2445000" />
       <workItem from="1724258793947" duration="1715000" />
       <workItem from="1724564434670" duration="2659000" />
-      <workItem from="1724568875796" duration="8767000" />
+      <workItem from="1724568875796" duration="12273000" />
     </task>
     <servers />
   </component>
