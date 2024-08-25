@@ -11,15 +11,16 @@ public class TaskService(AppDbContext dbContext) : ITaskService
         return dbContext.Tasks.AsNoTracking().ToListAsync();
     }
 
-    public async Task Create(TaskEntity task)
+    public async Task Create(TaskEntitySiteDto task)
     {
-        await dbContext.Tasks.AddAsync(task);
+        await dbContext.Tasks.AddAsync(new TaskEntity() { Text = task.Text, Title = task.Title });
         await dbContext.SaveChangesAsync();
     }
 
     public async Task Delete(Guid id)
     {
-        dbContext.Tasks.Remove(new TaskEntity { Id = id });
+        var assigment = await dbContext.Tasks.FindAsync(id);
+        if (assigment != null) dbContext.Tasks.Remove(assigment);
         await dbContext.SaveChangesAsync();
     }
 }

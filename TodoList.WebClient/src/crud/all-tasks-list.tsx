@@ -1,11 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { httpClient } from "../axios";
-import { Flex, Typography } from "antd";
+import { Button, Card, Flex, Typography } from "antd";
 
 type Task = {
 	id: string;
 	title: string;
 	text: string;
+	created: Date;
 };
 
 export function AllTasksList() {
@@ -53,10 +54,16 @@ function TaskCardView(props: TaskCardViewProps) {
 	});
 
 	return (
-		<div>
-			<h3>{props.task.title}</h3>
-			<p>{props.task.text}</p>
-			<button onClick={() => deleteMutation.mutate()}>Удалить задачу</button>
-		</div>
+		<Card>
+			<Flex vertical gap={12}>
+				<Typography.Title>{props.task.title}</Typography.Title>
+				<Typography.Text>{props.task.text}</Typography.Text>
+				<Typography.Text type="secondary">{props.task.id}</Typography.Text>
+				<Typography.Text>
+					{new Date(props.task.created).toLocaleString()}
+				</Typography.Text>
+				<Button onClick={() => deleteMutation.mutate()}>Удалить</Button>
+			</Flex>
+		</Card>
 	);
 }

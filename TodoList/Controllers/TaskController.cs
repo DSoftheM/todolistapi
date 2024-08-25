@@ -16,7 +16,7 @@ public class TaskController(ITaskService taskService) : Controller
 
     [Route("create")]
     [HttpPost]
-    public async Task Create([FromBody] TaskEntity task)
+    public async Task Create([FromBody] TaskEntitySiteDto task)
     {
         await taskService.Create(task);        
     }

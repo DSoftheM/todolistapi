@@ -10,23 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/CourseService/CourseService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/CourseService/ICourseService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/Implementations/LoggerService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/Implementations/TestService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/Interfaces/ITestService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/20240818115848_initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/20240818115848_initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/TodoList.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/TodoList.DAL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/TaskEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/TaskEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/all-tasks-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/all-tasks-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/create-task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/create-task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList/Controllers/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Controllers/TaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +35,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9386eae4fa104b4db10b154d119632c8381918/47/d03eb71e/IQueryable`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/96b22701ce3542d68e66b33c1ae9a14f1e6620/20/27357ba5/RelationalCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b40f1b3d80e849b7b78a0bba1971f35640908/16/3db0c9b5/IActionResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36f346b6c0454bc8a6afa7aed38119fe5bbffcc983298d9bfa4dbd5f49461f/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
@@ -192,7 +187,7 @@
       <workItem from="1723984660769" duration="2445000" />
       <workItem from="1724258793947" duration="1715000" />
       <workItem from="1724564434670" duration="2659000" />
-      <workItem from="1724568875796" duration="2381000" />
+      <workItem from="1724568875796" duration="8767000" />
     </task>
     <servers />
   </component>

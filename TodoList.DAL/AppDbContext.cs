@@ -11,14 +11,15 @@ public class AppDbContext : DbContext
     {
         Database.EnsureCreated();
     }
-    
-    public DbSet<TaskEntity> Tasks { get; set; }
 
+    public DbSet<TaskEntity> Tasks { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new TaskEntityConfiguration());
         
         base.OnModelCreating(modelBuilder);
+        base.Database.Migrate();
     }
 }
 
