@@ -8,7 +8,7 @@ type Task = {
   title: string;
   text: string;
   created: Date;
-  employee: Employee;
+  employee: Employee | null;
 };
 
 export function AllTasksList() {
@@ -68,7 +68,9 @@ function TaskCardView(props: TaskCardViewProps) {
         </div>
         <div>
           <Typography.Title level={5}>Ответственный</Typography.Title>
-          <Typography.Text>{props.task.employee.name}</Typography.Text>
+          <Typography.Text>
+            {props.task.employee?.name ?? "Нет ответственного"}
+          </Typography.Text>
         </div>
         <Typography.Text type="secondary">id = {props.task.id}</Typography.Text>
         <Typography.Text>

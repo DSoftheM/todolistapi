@@ -5,7 +5,7 @@ public class Employee
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
 
-    public AssignmentEntity? Task { get; set; }
+    public Assignment? Task { get; set; }
     public Guid? TaskId { get; set; }
 }
 

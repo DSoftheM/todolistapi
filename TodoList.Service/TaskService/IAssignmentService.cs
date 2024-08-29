@@ -4,7 +4,7 @@ namespace TodoList.Service.TaskService;
 
 public interface IAssignmentService
 {
-    public Task<List<AssignmentEntitySiteDto>> GetAll();
-    public Task Create(AssignmentEntitySiteDto assignment);
+    public Task<List<AssignmentSiteDto>> GetAll();
+    public Task Create(AssignmentSiteDto assignment);
     public Task Delete(Guid id);
 }

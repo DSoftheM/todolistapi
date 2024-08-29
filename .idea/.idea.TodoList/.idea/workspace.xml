@@ -9,23 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/AssignmentEntityConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList/Controllers/AssignmentController.cs" afterDir="false" />
+    <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="работает">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/EmployeeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/EmployeeConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/TaskEntityConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/AssignmentEntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/AssignmentEntityConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/AssignmentEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Assignment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/TaskEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/AssignmentEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/IAssignmentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/AssignmentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/all-tasks-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/all-tasks-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/create-task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/create-task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/Controllers/TaskController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/EmployeeService/EmployeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/EmployeeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/AssignmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/AssignmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/IAssignmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/IAssignmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList/Controllers/AssignmentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Controllers/AssignmentController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +33,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9386eae4fa104b4db10b154d119632c8381918/47/d03eb71e/IQueryable`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/96b22701ce3542d68e66b33c1ae9a14f1e6620/20/27357ba5/RelationalCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b40f1b3d80e849b7b78a0bba1971f35640908/16/3db0c9b5/IActionResult.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,6 +52,7 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -200,17 +197,29 @@
       <workItem from="1724609657635" duration="1552000" />
       <workItem from="1724697029376" duration="1733000" />
       <workItem from="1724780740503" duration="249000" />
-      <workItem from="1724949021513" duration="2539000" />
+      <workItem from="1724949021513" duration="4231000" />
     </task>
+    <task id="LOCAL-00001" summary="работает">
+      <option name="closed" value="true" />
+      <created>1724951728941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724951728941</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="работает" />
+    <option name="LAST_COMMIT_MESSAGE" value="работает" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

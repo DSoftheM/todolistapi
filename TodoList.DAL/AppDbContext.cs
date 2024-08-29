@@ -10,9 +10,10 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
         Database.EnsureCreated();
+        // Database.EnsureCreated();
     }
 
-    public DbSet<AssignmentEntity> Tasks { get; set; }
+    public DbSet<Assignment> Tasks { get; set; }
     public DbSet<Employee> Employees { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
