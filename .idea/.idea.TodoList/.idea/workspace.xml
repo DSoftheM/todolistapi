@@ -9,17 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="работает">
+    <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="2">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/AssignmentEntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/AssignmentEntityConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/AssignmentEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Assignment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.Service/EmployeeService/EmployeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/EmployeeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/AssignmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/AssignmentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/IAssignmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/IAssignmentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/Controllers/AssignmentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Controllers/AssignmentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/EmployeeService/IEmployeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/IEmployeeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Controllers/EmployeeController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +197,7 @@
       <workItem from="1724609657635" duration="1552000" />
       <workItem from="1724697029376" duration="1733000" />
       <workItem from="1724780740503" duration="249000" />
-      <workItem from="1724949021513" duration="4231000" />
+      <workItem from="1724949021513" duration="6351000" />
     </task>
     <task id="LOCAL-00001" summary="работает">
       <option name="closed" value="true" />
@@ -207,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724951728941</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2">
+      <option name="closed" value="true" />
+      <created>1724953433577</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724953433577</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +227,8 @@
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="работает" />
-    <option name="LAST_COMMIT_MESSAGE" value="работает" />
+    <MESSAGE value="2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

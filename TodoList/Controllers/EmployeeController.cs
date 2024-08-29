@@ -20,6 +20,12 @@ public class EmployeeController(IEmployeeService employeeService) : Controller
         return employeeService.Delete(id);
     }
 
+    [Route("update")]
+    public Task UpdateEmployee([FromBody] EmployeeSiteDto employeeSiteDto)
+    {
+        return employeeService.Update(employeeSiteDto);
+    }
+
     [Route("getAll")]
     public async Task<List<Employee>> GetAll()
     {

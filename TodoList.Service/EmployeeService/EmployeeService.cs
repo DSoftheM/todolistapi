@@ -30,4 +30,12 @@ public class EmployeeService(AppDbContext dbContext) : IEmployeeService
 
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task Update(EmployeeSiteDto employee)
+    {
+        var task = await dbContext.Tasks.FirstOrDefaultAsync(x => x.EmployeeId == employee.Id);
+        
+        dbContext.Employees.Update(employee.ToDataDto(task?.Id));
+        await dbContext.SaveChangesAsync();
+    }
 }
