@@ -10,23 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67778ec9-773e-4f84-a684-38ad34c7b6bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/EmployeeConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/EmployeeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList.Service/EmployeeService/IEmployeeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employee-creation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList/Controllers/EmployeeController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/AssignmentEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoList/Controllers/AssignmentController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoList/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/AuthorConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/CourseConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/LessonConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/StudentConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/EmployeeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Configurations/EmployeeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.DAL/Configurations/TaskEntityConfiguration.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.DAL/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/all-tasks-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/all-tasks-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/create-task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/create-task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/Employee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Domain/Entity/TaskEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Domain/Entity/AssignmentEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/ITaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/IAssignmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.Service/TaskService/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.Service/TaskService/AssignmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/all-tasks-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/all-tasks-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/create-task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/assignments/create-task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList.WebClient/src/crud/employees/employees-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList/Controllers/TaskController.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +45,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36f346b6c0454bc8a6afa7aed38119fe5bbffcc983298d9bfa4dbd5f49461f/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/533e65d7e1d3ab33a791a6bb1a1ecf0d06cc9b38761b9465fc6c2554a77ecb6/MvcServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/86303436289d5f41fb1399a14f24f737f5a0a03b8c5b2e3d76a9df57f732ab5f/ModelValidator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/99a759c8547faa43fa234fca8f44c783e9d1529be6bbccc2c7d39affdf3883/ReferenceReferenceBuilder`.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d68fa1cac1746449ae52924b0c66658879f8bbe18be3de345fcc1af7f30e43a/RouteAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eaf74182ad7c943aaf043fd9e7bbb1d564713c6bd276e62966aaa618e9/LoggerExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TodoList/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,23 +67,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.WebApplication1: http.executor": "Debug",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.WebApplication1: http.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebApplication1: http">
     <configuration name="WebApplication1: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/TodoList/TodoList.csproj" />
@@ -194,7 +194,13 @@
       <workItem from="1723984660769" duration="2445000" />
       <workItem from="1724258793947" duration="1715000" />
       <workItem from="1724564434670" duration="2659000" />
-      <workItem from="1724568875796" duration="12273000" />
+      <workItem from="1724568875796" duration="13218000" />
+      <workItem from="1724595099195" duration="547000" />
+      <workItem from="1724598852364" duration="21000" />
+      <workItem from="1724609657635" duration="1552000" />
+      <workItem from="1724697029376" duration="1733000" />
+      <workItem from="1724780740503" duration="249000" />
+      <workItem from="1724949021513" duration="2539000" />
     </task>
     <servers />
   </component>

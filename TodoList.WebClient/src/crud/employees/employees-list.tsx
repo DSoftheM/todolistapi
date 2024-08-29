@@ -1,19 +1,12 @@
 import { Typography, Card, Flex, Button } from "antd";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { httpClient } from "../../axios";
-
-type Employee = {
-	id: string;
-	name: string;
-};
+import { useEmployeesList } from "./use-employees-list";
 
 export function EmployeesList() {
 	const queryClient = useQueryClient();
 
-	const employeeQuery = useQuery<Employee[]>({
-		queryKey: ["employees"],
-		queryFn: async () => (await httpClient.get("/employee/getAll")).data,
-	});
+	const employeesListQuery = useEmployeesList();
 
 	const deleteMutation = useMutation({
 		mutationFn: (id: string) => httpClient.get("/employee/delete/" + id),
@@ -26,10 +19,10 @@ export function EmployeesList() {
 		<div>
 			<Typography.Title>Работники</Typography.Title>
 			<Flex style={{ display: "inline-flex" }} vertical>
-				{!employeeQuery.data?.length && (
+				{!employeesListQuery.data?.length && (
 					<Typography.Text>Нет работников</Typography.Text>
 				)}
-				{employeeQuery.data?.map((x) => {
+				{employeesListQuery.data?.map((x) => {
 					return (
 						<Card key={x.id}>
 							<Flex vertical gap={12}>

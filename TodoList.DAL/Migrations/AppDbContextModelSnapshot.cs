@@ -32,6 +32,9 @@ namespace Todolist.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("TaskId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
@@ -46,6 +49,9 @@ namespace Todolist.DAL.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
@@ -56,7 +62,26 @@ namespace Todolist.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmployeeId")
+                        .IsUnique();
+
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("TodoList.Domain.Entity.TaskEntity", b =>
+                {
+                    b.HasOne("TodoList.Domain.Entity.Employee", "Employee")
+                        .WithOne("Task")
+                        .HasForeignKey("TodoList.Domain.Entity.TaskEntity", "EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("TodoList.Domain.Entity.Employee", b =>
+                {
+                    b.Navigation("Task");
                 });
 #pragma warning restore 612, 618
         }

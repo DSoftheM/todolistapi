@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddCors();
 
-builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
