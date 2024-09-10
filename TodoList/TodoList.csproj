@@ -24,4 +24,10 @@
       <ProjectReference Include="..\TodoList.Service\TodoList.Service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
 </Project>

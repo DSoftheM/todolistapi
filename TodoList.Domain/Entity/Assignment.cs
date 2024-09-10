@@ -17,7 +17,7 @@ public class AssignmentSiteDto
     public string Title { get; set; } = string.Empty;
     public string Text { get; set; } = string.Empty;
     public EmployeeSiteDto? Employee { get; set; }
-    public DateTime Created { get; set; } 
+    public DateTime Created { get; set; }
 }
 
 public static class AssignmentConverterExtension

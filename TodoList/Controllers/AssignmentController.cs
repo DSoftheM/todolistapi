@@ -26,4 +26,10 @@ public class AssignmentController(IAssignmentService assignmentService) : Contro
     {
         await assignmentService.Delete(id);
     }
+    
+    [Route("edit")]
+    public async Task Edit([FromBody] AssignmentSiteDto assignment)
+    {
+        await assignmentService.Edit(assignment);
+    }
 }

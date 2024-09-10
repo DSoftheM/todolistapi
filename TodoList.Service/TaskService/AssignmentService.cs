@@ -32,4 +32,16 @@ public class AssignmentService(AppDbContext dbContext) : IAssignmentService
         if (assigment != null) dbContext.Tasks.Remove(assigment);
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task Edit(AssignmentSiteDto assignment)
+    {
+        var model = await dbContext.Tasks.FindAsync(assignment.Id);
+        if (model == null) return;
+        
+        model.Text = assignment.Text;
+        model.Title = assignment.Title;
+        
+        dbContext.Tasks.Update(model);
+        await dbContext.SaveChangesAsync();
+    }
 }

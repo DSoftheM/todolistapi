@@ -12,13 +12,16 @@ builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"connectionString = {connectionString}");
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
+    options.EnableSensitiveDataLogging();
 });
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 app.MapControllers();
 app.UseCors(corsPolicyBuilder =>
 {
