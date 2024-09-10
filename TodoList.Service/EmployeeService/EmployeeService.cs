@@ -22,9 +22,7 @@ public class EmployeeService(AppDbContext dbContext) : IEmployeeService
         var employee = await dbContext.Employees.Include(x => x.Task).FirstOrDefaultAsync(x => x.Id == id);
         if (employee != null)
         {
-            if (employee.Task != null)
-                employee.Task.EmployeeId = null;
-
+            employee.Task?.Employees.Remove(employee);
             dbContext.Employees.Remove(employee);
         }
 
@@ -33,9 +31,10 @@ public class EmployeeService(AppDbContext dbContext) : IEmployeeService
 
     public async Task Update(EmployeeSiteDto employee)
     {
-        var task = await dbContext.Tasks.FirstOrDefaultAsync(x => x.EmployeeId == employee.Id);
+        var task = await dbContext.Tasks.FirstOrDefaultAsync(x => x.EmployeesIds.Contains(employee.Id));
+        var model = new Employee() { Name = employee.Name, TaskId = task?.Id };
         
-        dbContext.Employees.Update(employee.ToDataDto(task?.Id));
+        dbContext.Employees.Update(model);
         await dbContext.SaveChangesAsync();
     }
 }

@@ -10,6 +10,6 @@ public class AssignmentEntityConfiguration : IEntityTypeConfiguration<Assignment
     {
         builder.HasKey(x => x.Id);
 
-        builder.HasOne(task => task.Employee).WithOne(e => e.Task).HasForeignKey<Assignment>(t => t.EmployeeId);
+        builder.HasMany(task => task.Employees).WithOne(e => e.Task).HasForeignKey(e => e.TaskId);
     }
 }

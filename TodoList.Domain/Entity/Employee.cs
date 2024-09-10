@@ -21,9 +21,4 @@ public static class EmployeeConverterExtension
     {
         return new EmployeeSiteDto() { Id = employee.Id, Name = employee.Name, };
     }
-
-    public static Employee ToDataDto(this EmployeeSiteDto siteDto, Guid? taskId)
-    {
-        return new Employee() { Id = siteDto.Id, Name = siteDto.Name, TaskId = taskId };
-    }
 }

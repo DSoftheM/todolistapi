@@ -7,8 +7,8 @@ public class Assignment
     public string Text { get; set; } = string.Empty;
     public DateTime Created { get; set; } = DateTime.Now.ToUniversalTime();
 
-    public Employee? Employee { get; set; }
-    public Guid? EmployeeId { get; set; }
+    public List<Employee> Employees { get; set; } = [];
+    public List<Guid> EmployeesIds { get; set; } = [];
 }
 
 public class AssignmentSiteDto
@@ -16,7 +16,7 @@ public class AssignmentSiteDto
     public Guid Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Text { get; set; } = string.Empty;
-    public EmployeeSiteDto? Employee { get; set; }
+    public List<EmployeeSiteDto> Employees { get; set; } = [];
     public DateTime Created { get; set; }
 }
 
@@ -27,7 +27,7 @@ public static class AssignmentConverterExtension
         return new AssignmentSiteDto()
         {
             Title = assignment.Title, Text = assignment.Text,
-            Employee = assignment.Employee?.ToSiteDto(), Id = assignment.Id,
+            Employees = assignment.Employees.Select(x => x.ToSiteDto()).ToList(), Id = assignment.Id,
             Created = assignment.Created
         };
     }
