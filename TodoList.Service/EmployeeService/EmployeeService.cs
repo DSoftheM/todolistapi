@@ -12,9 +12,9 @@ public class EmployeeService(AppDbContext dbContext) : IEmployeeService
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task<List<Employee>> GetAll()
+    public async Task<List<EmployeeSiteDto>> GetAll()
     {
-        return await dbContext.Employees.AsNoTracking().ToListAsync();
+        return await dbContext.Employees.AsNoTracking().Select(x => x.ToSiteDto()).ToListAsync();
     }
 
     public async Task Delete(Guid id)
@@ -31,9 +31,11 @@ public class EmployeeService(AppDbContext dbContext) : IEmployeeService
 
     public async Task Update(EmployeeSiteDto employee)
     {
-        var task = await dbContext.Tasks.FirstOrDefaultAsync(x => x.EmployeesIds.Contains(employee.Id));
-        var model = new Employee() { Name = employee.Name, TaskId = task?.Id };
-        
+        var model = dbContext.Employees.FirstOrDefault(x => x.Id == employee.Id);
+        if (model == null) return;
+
+        model.Name = employee.Name;
+
         dbContext.Employees.Update(model);
         await dbContext.SaveChangesAsync();
     }

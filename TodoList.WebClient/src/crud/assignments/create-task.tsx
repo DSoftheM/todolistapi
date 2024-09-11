@@ -22,6 +22,8 @@ export function CreateTask() {
     const [text, setText] = useState("")
     const [employees, setEmployees] = useState<Employee[] | null>(null)
 
+    console.log("employees :>> ", employees)
+
     return (
         <Flex vertical gap={30} style={{ maxWidth: 400, width: "100%" }}>
             <label>
@@ -36,7 +38,6 @@ export function CreateTask() {
                 <Typography.Title level={5}>Ответственные</Typography.Title>
                 <Select
                     mode="multiple"
-                    value={employees?.map((x) => x.name)}
                     allowClear
                     style={{ width: "100%" }}
                     placeholder="Выберите ответственных"

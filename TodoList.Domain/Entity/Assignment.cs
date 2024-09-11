@@ -8,7 +8,6 @@ public class Assignment
     public DateTime Created { get; set; } = DateTime.Now.ToUniversalTime();
 
     public List<Employee> Employees { get; set; } = [];
-    public List<Guid> EmployeesIds { get; set; } = [];
 }
 
 public class AssignmentSiteDto

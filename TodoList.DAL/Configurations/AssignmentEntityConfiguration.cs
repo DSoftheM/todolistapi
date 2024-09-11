@@ -9,7 +9,6 @@ public class AssignmentEntityConfiguration : IEntityTypeConfiguration<Assignment
     public void Configure(EntityTypeBuilder<Assignment> builder)
     {
         builder.HasKey(x => x.Id);
-
-        builder.HasMany(task => task.Employees).WithOne(e => e.Task).HasForeignKey(e => e.TaskId);
+        builder.HasMany(task => task.Employees).WithOne(e => e.Task).OnDelete(DeleteBehavior.SetNull);
     }
 }

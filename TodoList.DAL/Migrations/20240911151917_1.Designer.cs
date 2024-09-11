@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Todolist.DAL;
@@ -11,9 +12,11 @@ using Todolist.DAL;
 namespace Todolist.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240911151917_1")]
+    partial class _1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,8 +71,7 @@ namespace Todolist.DAL.Migrations
                 {
                     b.HasOne("TodoList.Domain.Entity.Assignment", "Task")
                         .WithMany("Employees")
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("TaskId");
 
                     b.Navigation("Task");
                 });

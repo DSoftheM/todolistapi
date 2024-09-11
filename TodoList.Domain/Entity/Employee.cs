@@ -6,7 +6,6 @@ public class Employee
     public string Name { get; set; } = string.Empty;
 
     public Assignment? Task { get; set; }
-    public Guid? TaskId { get; set; }
 }
 
 public class EmployeeSiteDto
@@ -19,6 +18,6 @@ public static class EmployeeConverterExtension
 {
     public static EmployeeSiteDto ToSiteDto(this Employee employee)
     {
-        return new EmployeeSiteDto() { Id = employee.Id, Name = employee.Name, };
+        return new EmployeeSiteDto() { Id = employee.Id, Name = employee.Name,  };
     }
 }

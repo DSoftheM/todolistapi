@@ -27,7 +27,7 @@ public class EmployeeController(IEmployeeService employeeService) : Controller
     }
 
     [Route("getAll")]
-    public async Task<List<Employee>> GetAll()
+    public async Task<List<EmployeeSiteDto>> GetAll()
     {
         return await employeeService.GetAll();
     }

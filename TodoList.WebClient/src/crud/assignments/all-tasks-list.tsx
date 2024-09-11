@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "react-query"
 import { httpClient } from "../../axios"
-import { Button, Card, Dropdown, Flex, Input, Typography } from "antd"
+import { Button, Card, Flex, Input, Select, Typography } from "antd"
 import { Employee, useEmployeesList } from "../employees/use-employees-list"
 import { useImmer } from "use-immer"
 
@@ -9,7 +9,7 @@ type Task = {
     title: string
     text: string
     created: Date
-    employee: Employee | null
+    employees: Employee[]
 }
 
 export function AllTasksList() {
@@ -97,28 +97,25 @@ function TaskCardView(props: TaskCardViewProps) {
                         />
                     </div>
                     <Flex vertical>
-                        <Typography.Title level={5}>Ответственный</Typography.Title>
-                        <Dropdown
-                            trigger={["click"]}
-                            menu={{
-                                items: (employeesListQuery.data ?? []).map((x) => {
-                                    return {
-                                        key: x.id,
-                                        label: x.name,
-                                        onClick: () => {
-                                            updateEdit((draft) => {
-                                                if (!draft) return
-                                                draft.employee = x
-                                            })
-                                        },
-                                    }
-                                }),
+                        <Typography.Title level={5}>Ответственные</Typography.Title>
+                        <Select
+                            mode="multiple"
+                            value={employeesListQuery.data?.map((x) => x.name)}
+                            allowClear
+                            style={{ width: "100%" }}
+                            placeholder="Выберите ответственных"
+                            onChange={(_ids, items) => {
+                                if (Array.isArray(items)) {
+                                    updateEdit((draft) => {
+                                        if (!draft) return
+                                        draft.employees = items.map((x) => x.data)
+                                    })
+                                }
                             }}
-                        >
-                            <Button style={{ justifyContent: "left" }} onClick={(e) => e.preventDefault()}>
-                                {edit.employee?.name ?? "Не выбран"}
-                            </Button>
-                        </Dropdown>
+                            options={(employeesListQuery.data ?? []).map((x) => {
+                                return { label: x.name, value: x.id, data: x }
+                            })}
+                        />
                     </Flex>
                     <Typography.Text>{new Date(props.task.created).toLocaleString()}</Typography.Text>
                     <Button
@@ -143,12 +140,20 @@ function TaskCardView(props: TaskCardViewProps) {
                     <Typography.Text>{props.task.title}</Typography.Text>
                 </div>
                 <div>
-                    <Typography.Title level={5}>Текст</Typography.Title>
+                    <Typography.Title level={5}>Описание</Typography.Title>
                     <Typography.Text>{props.task.text}</Typography.Text>
                 </div>
                 <div>
-                    <Typography.Title level={5}>Ответственный</Typography.Title>
-                    <Typography.Text>{props.task.employee?.name ?? "Нет ответственного"}</Typography.Text>
+                    <Typography.Title level={5}>Ответственные</Typography.Title>
+                    <Flex vertical gap={8} component="ul">
+                        {props.task.employees.map((e) => {
+                            return (
+                                <li key={e.id}>
+                                    <Typography.Text>{e.name}</Typography.Text>
+                                </li>
+                            )
+                        })}
+                    </Flex>
                 </div>
                 <Typography.Text type="secondary">id = {props.task.id}</Typography.Text>
                 <Typography.Text>{new Date(props.task.created).toLocaleString()}</Typography.Text>

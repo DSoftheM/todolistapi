@@ -15,18 +15,16 @@ public class AssignmentService(AppDbContext dbContext) : IAssignmentService
 
     public async Task Create(AssignmentSiteDto assignment)
     {
+        var employeesIds = assignment.Employees.Select(x => x.Id).ToList();
+        var employees = await dbContext.Employees.Where(e => employeesIds.Contains(e.Id)).ToListAsync();
+
         var newAssignment = new Assignment()
         {
             Text = assignment.Text, Title = assignment.Title,
-            EmployeesIds = assignment.Employees.Select(x => x.Id).ToList()
+            Employees = employees
         };
 
-        var createdAssignment = await dbContext.Tasks.AddAsync(newAssignment);
-
-        await dbContext.Employees.ForEachAsync(employee =>
-        {
-            employee.TaskId = createdAssignment.Entity.Id;
-        });
+        await dbContext.Tasks.AddAsync(newAssignment);
         await dbContext.SaveChangesAsync();
     }
 
