@@ -98,9 +98,16 @@ function TaskCardView(props: TaskCardViewProps) {
                     </div>
                     <Flex vertical>
                         <Typography.Title level={5}>Ответственные</Typography.Title>
+                        {/* <pre>
+                            {JSON.stringify(
+                                edit.employees.map((x) => ({ label: x.name, value: x.name })),
+                                null,
+                                2
+                            )}
+                        </pre> */}
                         <Select
                             mode="multiple"
-                            value={employeesListQuery.data?.map((x) => x.name)}
+                            value={edit.employees.map((x) => x.id)}
                             allowClear
                             style={{ width: "100%" }}
                             placeholder="Выберите ответственных"
