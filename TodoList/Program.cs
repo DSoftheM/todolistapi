@@ -1,4 +1,7 @@
+using System.Reflection;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using TodoList.Controllers;
 using Todolist.DAL;
 using TodoList.Service.EmployeeService;
 using TodoList.Service.TaskService;
@@ -10,9 +13,9 @@ builder.Services.AddCors();
 
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddValidatorsFromAssemblies([Assembly.GetExecutingAssembly()]);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-Console.WriteLine($"connectionString = {connectionString}");
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(connectionString);

@@ -5,11 +5,12 @@ using TodoList.Service.EmployeeService;
 namespace TodoList.Controllers;
 
 [Route("api/[controller]")]
+[ApiController]
 public class EmployeeController(IEmployeeService employeeService) : Controller
 {
     [Route("create")]
     [HttpPost]
-    public Task CreateEmployee([FromBody]EmployeeSiteDto employeeSiteDto)
+    public Task CreateEmployee(EmployeeSiteDto employeeSiteDto)
     {
         return employeeService.Create(employeeSiteDto);
     }
@@ -21,7 +22,7 @@ public class EmployeeController(IEmployeeService employeeService) : Controller
     }
 
     [Route("update")]
-    public Task UpdateEmployee([FromBody] EmployeeSiteDto employeeSiteDto)
+    public Task UpdateEmployee(EmployeeSiteDto employeeSiteDto)
     {
         return employeeService.Update(employeeSiteDto);
     }

@@ -98,13 +98,6 @@ function TaskCardView(props: TaskCardViewProps) {
                     </div>
                     <Flex vertical>
                         <Typography.Title level={5}>Ответственные</Typography.Title>
-                        {/* <pre>
-                            {JSON.stringify(
-                                edit.employees.map((x) => ({ label: x.name, value: x.name })),
-                                null,
-                                2
-                            )}
-                        </pre> */}
                         <Select
                             mode="multiple"
                             value={edit.employees.map((x) => x.id)}

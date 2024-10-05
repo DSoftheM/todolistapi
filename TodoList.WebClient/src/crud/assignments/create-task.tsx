@@ -22,8 +22,6 @@ export function CreateTask() {
     const [text, setText] = useState("")
     const [employees, setEmployees] = useState<Employee[] | null>(null)
 
-    console.log("employees :>> ", employees)
-
     return (
         <Flex vertical gap={30} style={{ maxWidth: 400, width: "100%" }}>
             <label>
@@ -38,6 +36,7 @@ export function CreateTask() {
                 <Typography.Title level={5}>Ответственные</Typography.Title>
                 <Select
                     mode="multiple"
+                    value={employees?.map((x) => x.id)}
                     allowClear
                     style={{ width: "100%" }}
                     placeholder="Выберите ответственных"
@@ -45,7 +44,7 @@ export function CreateTask() {
                         if (Array.isArray(items)) setEmployees(items.map((x) => x.data))
                     }}
                     options={(employeesListQuery.data ?? []).map((x) => {
-                        return { label: x.name, value: x.id, data: x }
+                        return { label: x.name, value: x.id + x.name, data: x }
                     })}
                 />
             </label>

@@ -10,5 +10,6 @@ public class AssignmentEntityConfiguration : IEntityTypeConfiguration<Assignment
     {
         builder.HasKey(x => x.Id);
         builder.HasMany(task => task.Employees).WithOne(e => e.Task).OnDelete(DeleteBehavior.SetNull);
+        
     }
 }
