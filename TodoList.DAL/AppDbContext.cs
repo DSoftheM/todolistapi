@@ -16,7 +16,7 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new AssignmentEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new AssignmentConfiguration());
         modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
 
         base.OnModelCreating(modelBuilder);

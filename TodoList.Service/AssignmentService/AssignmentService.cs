@@ -43,11 +43,10 @@ public class AssignmentService(AppDbContext dbContext) : IAssignmentService
         model.Text = assignment.Text;
         model.Title = assignment.Title;
         model.Done = assignment.Done;
-            
-        model.Employees.ForEach(x => x.Task = null);
+
         var ids = assignment.Employees.Select(x => x.Id).ToList();
         var employees = await dbContext.Employees.Where(x => ids.Contains(x.Id)).ToListAsync();
-        employees.ForEach(x => x.Task = model);
+        model.Employees = employees;
 
         dbContext.Employees.UpdateRange(employees);
         dbContext.Tasks.Update(model);

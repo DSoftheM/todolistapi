@@ -19,12 +19,11 @@ public class EmployeeService(AppDbContext dbContext) : IEmployeeService
 
     public async Task Delete(Guid id)
     {
-        var employee = await dbContext.Employees.Include(x => x.Task).FirstOrDefaultAsync(x => x.Id == id);
-        if (employee != null)
-        {
-            employee.Task?.Employees.Remove(employee);
-            dbContext.Employees.Remove(employee);
-        }
+        var employee = await dbContext.Employees.Include(x => x.Tasks).FirstOrDefaultAsync(x => x.Id == id);
+        if (employee == null) return;
+
+        employee.Tasks.ForEach(t => t.Employees.Remove(employee));
+        dbContext.Employees.Remove(employee);
 
         await dbContext.SaveChangesAsync();
     }
