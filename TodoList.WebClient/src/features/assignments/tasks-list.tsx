@@ -14,7 +14,7 @@ type Assignment = {
     done: boolean
 }
 
-export function AllTasksList() {
+export function TasksList() {
     const allQuery = useQuery<Assignment[]>({
         queryKey: ["all-tasks"],
         queryFn: async () => (await httpClient.get("/task/getAll")).data,
@@ -26,7 +26,7 @@ export function AllTasksList() {
         }
 
         return (
-            <Flex vertical gap={12}>
+            <Flex gap={12}>
                 {allQuery.data?.map((x) => {
                     return <TaskCardView key={x.id} assignment={x} />
                 })}
@@ -158,7 +158,10 @@ function TaskCardView(props: TaskCardViewProps) {
                     </Flex>
                 </div>
                 <Typography.Text type="secondary">id = {props.assignment.id}</Typography.Text>
-                <Typography.Text>{new Date(props.assignment.created).toLocaleString()}</Typography.Text>
+                <Flex vertical>
+                    <Typography.Title level={5}>Создана</Typography.Title>
+                    <Typography.Text>{new Date(props.assignment.created).toLocaleString()}</Typography.Text>
+                </Flex>
                 <Button onClick={() => deleteMutation.mutate()}>Удалить</Button>
                 {props.assignment.done ? (
                     <Button
