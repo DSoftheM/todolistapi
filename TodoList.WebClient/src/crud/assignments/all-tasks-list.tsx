@@ -3,17 +3,19 @@ import { httpClient } from "../../axios"
 import { Button, Card, Flex, Input, Select, Typography } from "antd"
 import { Employee, useEmployeesList } from "../employees/use-employees-list"
 import { useImmer } from "use-immer"
+import { produce } from "immer"
 
-type Task = {
+type Assignment = {
     id: string
     title: string
     text: string
     created: Date
     employees: Employee[]
+    done: boolean
 }
 
 export function AllTasksList() {
-    const allQuery = useQuery<Task[]>({
+    const allQuery = useQuery<Assignment[]>({
         queryKey: ["all-tasks"],
         queryFn: async () => (await httpClient.get("/task/getAll")).data,
     })
@@ -26,7 +28,7 @@ export function AllTasksList() {
         return (
             <Flex vertical gap={12}>
                 {allQuery.data?.map((x) => {
-                    return <TaskCardView key={x.id} task={x} />
+                    return <TaskCardView key={x.id} assignment={x} />
                 })}
             </Flex>
         )
@@ -41,14 +43,14 @@ export function AllTasksList() {
 }
 
 type TaskCardViewProps = {
-    task: Task
+    assignment: Assignment
 }
 
 function TaskCardView(props: TaskCardViewProps) {
     const queryClient = useQueryClient()
 
     const deleteMutation = useMutation({
-        mutationFn: () => httpClient.get("/task/delete/" + props.task.id),
+        mutationFn: () => httpClient.get("/task/delete/" + props.assignment.id),
         onSuccess: () => {
             queryClient.invalidateQueries({
                 queryKey: ["all-tasks"],
@@ -56,11 +58,11 @@ function TaskCardView(props: TaskCardViewProps) {
         },
     })
 
-    const [edit, updateEdit] = useImmer<Task | null>(null)
+    const [edit, updateEdit] = useImmer<Assignment | null>(null)
     const employeesListQuery = useEmployeesList()
 
     const editMutation = useMutation({
-        mutationFn: () => httpClient.post("/task/edit", edit),
+        mutationFn: (assignment: Assignment) => httpClient.post("/task/edit", assignment),
         onSuccess: () => {
             queryClient.invalidateQueries({
                 queryKey: ["all-tasks"],
@@ -117,10 +119,10 @@ function TaskCardView(props: TaskCardViewProps) {
                             })}
                         />
                     </Flex>
-                    <Typography.Text>{new Date(props.task.created).toLocaleString()}</Typography.Text>
+                    <Typography.Text>{new Date(props.assignment.created).toLocaleString()}</Typography.Text>
                     <Button
                         onClick={() => {
-                            editMutation.mutate()
+                            editMutation.mutate(edit)
                             updateEdit(null)
                         }}
                     >
@@ -137,16 +139,16 @@ function TaskCardView(props: TaskCardViewProps) {
             <Flex vertical gap={12}>
                 <div>
                     <Typography.Title level={5}>Название</Typography.Title>
-                    <Typography.Text>{props.task.title}</Typography.Text>
+                    <Typography.Text>{props.assignment.title}</Typography.Text>
                 </div>
                 <div>
                     <Typography.Title level={5}>Описание</Typography.Title>
-                    <Typography.Text>{props.task.text}</Typography.Text>
+                    <Typography.Text>{props.assignment.text}</Typography.Text>
                 </div>
                 <div>
                     <Typography.Title level={5}>Ответственные</Typography.Title>
                     <Flex vertical gap={8} component="ul">
-                        {props.task.employees.map((e) => {
+                        {props.assignment.employees.map((e) => {
                             return (
                                 <li key={e.id}>
                                     <Typography.Text>{e.name}</Typography.Text>
@@ -155,10 +157,34 @@ function TaskCardView(props: TaskCardViewProps) {
                         })}
                     </Flex>
                 </div>
-                <Typography.Text type="secondary">id = {props.task.id}</Typography.Text>
-                <Typography.Text>{new Date(props.task.created).toLocaleString()}</Typography.Text>
+                <Typography.Text type="secondary">id = {props.assignment.id}</Typography.Text>
+                <Typography.Text>{new Date(props.assignment.created).toLocaleString()}</Typography.Text>
                 <Button onClick={() => deleteMutation.mutate()}>Удалить</Button>
-                <Button onClick={() => updateEdit(props.task)}>Редактировать</Button>
+                {props.assignment.done ? (
+                    <Button
+                        onClick={() => {
+                            const updated = produce(props.assignment, (draft) => {
+                                draft.done = false
+                            })
+                            editMutation.mutate(updated)
+                        }}
+                    >
+                        Не выполнена
+                    </Button>
+                ) : (
+                    <Button
+                        onClick={() => {
+                            const updated = produce(props.assignment, (draft) => {
+                                draft.done = true
+                            })
+                            editMutation.mutate(updated)
+                        }}
+                    >
+                        Выполнена
+                    </Button>
+                )}
+
+                <Button onClick={() => updateEdit(props.assignment)}>Редактировать</Button>
             </Flex>
         </Card>
     )

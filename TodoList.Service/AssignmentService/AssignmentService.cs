@@ -42,6 +42,7 @@ public class AssignmentService(AppDbContext dbContext) : IAssignmentService
 
         model.Text = assignment.Text;
         model.Title = assignment.Title;
+        model.Done = assignment.Done;
             
         model.Employees.ForEach(x => x.Task = null);
         var ids = assignment.Employees.Select(x => x.Id).ToList();
