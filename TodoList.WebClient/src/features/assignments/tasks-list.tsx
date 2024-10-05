@@ -5,6 +5,7 @@ import { Employee, useEmployeesList } from "../employees/use-employees-list"
 import { useImmer } from "use-immer"
 import { produce } from "immer"
 import { useState } from "react"
+import { CheckCircleTwoTone } from "@ant-design/icons"
 
 type Assignment = {
     id: string
@@ -45,7 +46,7 @@ export function TasksList() {
                     <Input
                         type="text"
                         value={term}
-                        placeholder="Поиск"
+                        placeholder="Поиск по названию или описанию"
                         variant="borderless"
                         onChange={(e) => setTerm(e.target.value)}
                     />
@@ -149,7 +150,13 @@ function TaskCardView(props: TaskCardViewProps) {
     }
 
     return (
-        <Card>
+        <Card style={{ position: "relative" }}>
+            {props.assignment.done && (
+                <CheckCircleTwoTone
+                    style={{ fontSize: 40, position: "absolute", left: -20, top: -20 }}
+                    twoToneColor="#52c41a"
+                />
+            )}
             <Flex vertical gap={12}>
                 <div>
                     <Typography.Title level={5}>Название</Typography.Title>
