@@ -11,8 +11,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddCors();
 
-builder.Services.AddScoped<IAssignmentService, AssignmentService>();
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<AssignmentService>();
+builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddValidatorsFromAssemblies([Assembly.GetExecutingAssembly()]);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

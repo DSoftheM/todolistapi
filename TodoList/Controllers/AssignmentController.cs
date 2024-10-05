@@ -7,13 +7,13 @@ namespace TodoList.Controllers;
 
 [Route("api/task")]
 [ApiController]
-public class AssignmentController(IAssignmentService assignmentService, AssignmentControllerValidator validator)
+public class AssignmentController(AssignmentService assignmentService, AssignmentControllerValidator validator)
     : Controller
 {
     [Route("getAll")]
-    public async Task<List<AssignmentSiteDto>> GetAll()
+    public async Task<List<AssignmentSiteDto>> GetAll(string term = "")
     {
-        return await assignmentService.GetAll();
+        return await assignmentService.GetAll(term);
     }
 
     [Route("create")]

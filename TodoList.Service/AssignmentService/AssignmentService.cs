@@ -1,16 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Todolist.DAL;
 using TodoList.Domain.Entity;
 
 namespace TodoList.Service.TaskService;
 
-public class AssignmentService(AppDbContext dbContext) : IAssignmentService
+public class AssignmentService(AppDbContext dbContext) 
 {
-    public async Task<List<AssignmentSiteDto>> GetAll()
+    public async Task<List<AssignmentSiteDto>> GetAll(string term)
     {
-        return await dbContext.Tasks.AsNoTracking().Include(x => x.Employees)
+        term = term.ToLower();
+        
+        return await dbContext.Tasks.AsNoTracking().Where(Predicate()).Include(x => x.Employees)
             .Select(x => x.ToSiteDto())
             .ToListAsync();
+
+        Expression<Func<Assignment, bool>> Predicate()
+        {
+            return t => t.Text.Contains(term) || t.Title.Contains(term);
+        }
     }
 
     public async Task Create(AssignmentSiteDto assignment)

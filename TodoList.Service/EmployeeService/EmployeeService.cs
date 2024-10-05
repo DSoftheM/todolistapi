@@ -4,7 +4,7 @@ using TodoList.Domain.Entity;
 
 namespace TodoList.Service.EmployeeService;
 
-public class EmployeeService(AppDbContext dbContext) : IEmployeeService
+public class EmployeeService(AppDbContext dbContext)
 {
     public async Task Create(EmployeeSiteDto employee)
     {

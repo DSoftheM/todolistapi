@@ -4,6 +4,7 @@ import { Button, Card, Flex, Input, Select, Typography } from "antd"
 import { Employee, useEmployeesList } from "../employees/use-employees-list"
 import { useImmer } from "use-immer"
 import { produce } from "immer"
+import { useState } from "react"
 
 type Assignment = {
     id: string
@@ -15,9 +16,11 @@ type Assignment = {
 }
 
 export function TasksList() {
+    const [term, setTerm] = useState("")
+
     const allQuery = useQuery<Assignment[]>({
-        queryKey: ["all-tasks"],
-        queryFn: async () => (await httpClient.get("/task/getAll")).data,
+        queryKey: ["all-tasks", term],
+        queryFn: async () => (await httpClient.get("/task/getAll?term=" + term)).data,
     })
 
     const renderBody = () => {
@@ -36,8 +39,19 @@ export function TasksList() {
 
     return (
         <div>
-            <Typography.Title level={2}>Список задач</Typography.Title>
-            {renderBody()}
+            <Flex vertical gap={20}>
+                <div>
+                    <Typography.Title level={2}>Список задач</Typography.Title>
+                    <Input
+                        type="text"
+                        value={term}
+                        placeholder="Поиск"
+                        variant="borderless"
+                        onChange={(e) => setTerm(e.target.value)}
+                    />
+                </div>
+                {renderBody()}
+            </Flex>
         </div>
     )
 }

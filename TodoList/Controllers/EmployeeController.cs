@@ -6,7 +6,7 @@ namespace TodoList.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class EmployeeController(IEmployeeService employeeService) : Controller
+public class EmployeeController(EmployeeService employeeService) : Controller
 {
     [Route("create")]
     [HttpPost]
