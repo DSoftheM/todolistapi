@@ -1,5 +1,8 @@
 export const Nav = {
-    main: "/",
-    assignments: "/assignments",
+    root: "/",
+    assignments: {
+        root: "/assignments/",
+        printForm: (id: string) => `/assignments/print-preview/${id}`,
+    },
     employees: "/employees",
 }

@@ -6,6 +6,8 @@ import { useImmer } from "use-immer"
 import { produce } from "immer"
 import { useState } from "react"
 import { CheckCircleTwoTone } from "@ant-design/icons"
+import { Link } from "react-router-dom"
+import { Nav } from "../../nav"
 
 type Assignment = {
     id: string
@@ -209,6 +211,9 @@ function TaskCardView(props: TaskCardViewProps) {
                 )}
 
                 <Button onClick={() => updateEdit(props.assignment)}>Редактировать</Button>
+                <Link to={Nav.assignments.printForm(props.assignment.id)}>
+                    <Button>Печатная форма</Button>
+                </Link>
             </Flex>
         </Card>
     )

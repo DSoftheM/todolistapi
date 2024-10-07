@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TodoList.Domain.Entity;
 using TodoList.Filers;
 using TodoList.Service.TaskService;
@@ -11,6 +12,7 @@ public class AssignmentController(AssignmentService assignmentService, Assignmen
     : Controller
 {
     [Route("getAll")]
+    // [Authorize]
     public async Task<List<AssignmentSiteDto>> GetAll(string term = "")
     {
         return await assignmentService.GetAll(term);
