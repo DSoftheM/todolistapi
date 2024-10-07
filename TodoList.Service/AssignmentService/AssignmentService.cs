@@ -29,7 +29,7 @@ public class AssignmentService(AppDbContext dbContext)
         var newAssignment = new Assignment()
         {
             Text = assignment.Text, Title = assignment.Title,
-            Employees = employees
+            Employees = employees, Priority = assignment.Priority
         };
 
         await dbContext.Tasks.AddAsync(newAssignment);
@@ -51,6 +51,7 @@ public class AssignmentService(AppDbContext dbContext)
         model.Text = assignment.Text;
         model.Title = assignment.Title;
         model.Done = assignment.Done;
+        model.Priority = assignment.Priority;
 
         var ids = assignment.Employees.Select(x => x.Id).ToList();
         var employees = await dbContext.Employees.Where(x => ids.Contains(x.Id)).ToListAsync();

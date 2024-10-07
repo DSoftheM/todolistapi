@@ -1,22 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from "react-query"
 import { httpClient } from "../../axios"
-import { Button, Card, Flex, Input, Select, Typography } from "antd"
-import { Employee, useEmployeesList } from "../employees/use-employees-list"
+import { Button, Card, Dropdown, Flex, Input, Select, Space, Typography } from "antd"
+import { useEmployeesList } from "../employees/use-employees-list"
 import { useImmer } from "use-immer"
 import { produce } from "immer"
 import { useState } from "react"
-import { CheckCircleTwoTone } from "@ant-design/icons"
+import { CheckCircleTwoTone, DownOutlined } from "@ant-design/icons"
 import { Link } from "react-router-dom"
 import { Nav } from "../../nav"
-
-type Assignment = {
-    id: string
-    title: string
-    text: string
-    created: Date
-    employees: Employee[]
-    done: boolean
-}
+import { Assignment, AssignmentPriority, assignmentPriorityToString } from "./types/assignment"
 
 export function TasksList() {
     const [term, setTerm] = useState("")
@@ -115,6 +107,49 @@ function TaskCardView(props: TaskCardViewProps) {
                             }}
                         />
                     </div>
+                    <Dropdown
+                        menu={{
+                            items: [
+                                {
+                                    key: AssignmentPriority.Low,
+                                    label: assignmentPriorityToString(AssignmentPriority.Low),
+                                    onClick: () => {
+                                        updateEdit((draft) => {
+                                            if (!draft) return
+                                            draft.priority = AssignmentPriority.Low
+                                        })
+                                    },
+                                },
+                                {
+                                    key: AssignmentPriority.Medium,
+                                    label: assignmentPriorityToString(AssignmentPriority.Medium),
+                                    onClick: () => {
+                                        updateEdit((draft) => {
+                                            if (!draft) return
+                                            draft.priority = AssignmentPriority.Medium
+                                        })
+                                    },
+                                },
+                                {
+                                    key: AssignmentPriority.High,
+                                    label: assignmentPriorityToString(AssignmentPriority.High),
+                                    onClick: () => {
+                                        updateEdit((draft) => {
+                                            if (!draft) return
+                                            draft.priority = AssignmentPriority.High
+                                        })
+                                    },
+                                },
+                            ],
+                        }}
+                    >
+                        <a onClick={(e) => e.preventDefault()}>
+                            <Space>
+                                {assignmentPriorityToString(edit.priority)}
+                                <DownOutlined />
+                            </Space>
+                        </a>
+                    </Dropdown>
                     <Flex vertical>
                         <Typography.Title level={5}>Ответственные</Typography.Title>
                         <Select
@@ -167,6 +202,10 @@ function TaskCardView(props: TaskCardViewProps) {
                 <div>
                     <Typography.Title level={5}>Описание</Typography.Title>
                     <Typography.Text>{props.assignment.text}</Typography.Text>
+                </div>
+                <div>
+                    <Typography.Title level={5}>Приоритет</Typography.Title>
+                    <Typography.Text>{assignmentPriorityToString(props.assignment.priority)}</Typography.Text>
                 </div>
                 <div>
                     <Typography.Title level={5}>Ответственные</Typography.Title>

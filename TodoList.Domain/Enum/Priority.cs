@@ -1,8 +1,8 @@
 ﻿namespace TodoList.Domain.Enum;
 
-public enum Priority
+public enum AssignmentPriority
 {
-    Easy = 1,
+    Low = 1,
     Medium = 2,
-    Hard = 3,
+    High = 3,
 }
