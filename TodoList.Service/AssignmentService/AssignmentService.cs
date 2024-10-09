@@ -5,13 +5,14 @@ using TodoList.Domain.Entity;
 
 namespace TodoList.Service.TaskService;
 
-public class AssignmentService(AppDbContext dbContext) 
+public class AssignmentService(AppDbContext dbContext)
 {
     public async Task<List<AssignmentSiteDto>> GetAll(string term)
     {
         term = term.ToLower();
-        
-        return await dbContext.Tasks.AsNoTracking().Where(Predicate()).Include(x => x.Employees)
+
+        return await dbContext.Tasks.AsNoTracking().Where(Predicate())
+            .Include(x => x.Employees)
             .Select(x => x.ToSiteDto())
             .ToListAsync();
 
