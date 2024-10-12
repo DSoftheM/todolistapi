@@ -11,9 +11,9 @@ export type Assignment = {
 }
 
 export enum AssignmentPriority {
-    Low = 1,
-    Medium = 2,
-    High = 3,
+    Low = "Low",
+    Medium = "Medium",
+    High = "High",
 }
 
 export function assignmentPriorityToString(assignmentPriority: AssignmentPriority) {

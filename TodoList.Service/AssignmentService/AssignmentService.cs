@@ -2,24 +2,21 @@
 using Microsoft.EntityFrameworkCore;
 using Todolist.DAL;
 using TodoList.Domain.Entity;
+using TodoList.Domain.Enum;
 
 namespace TodoList.Service.TaskService;
 
 public class AssignmentService(AppDbContext dbContext)
 {
-    public async Task<List<AssignmentSiteDto>> GetAll(string term)
+    public async Task<List<AssignmentSiteDto>> GetAll(string term, FilterBy filterBy)
     {
         term = term.ToLower();
 
-        return await dbContext.Tasks.AsNoTracking().Where(Predicate())
+        return await dbContext.Tasks.AsNoTracking().Where(t => t.Text.Contains(term) || t.Title.Contains(term))
             .Include(x => x.Employees)
+            .OrderByDescending(x => x.Created)
             .Select(x => x.ToSiteDto())
             .ToListAsync();
-
-        Expression<Func<Assignment, bool>> Predicate()
-        {
-            return t => t.Text.Contains(term) || t.Title.Contains(term);
-        }
     }
 
     public async Task Create(AssignmentSiteDto assignment)
@@ -61,5 +58,18 @@ public class AssignmentService(AppDbContext dbContext)
         dbContext.Employees.UpdateRange(employees);
         dbContext.Tasks.Update(model);
         await dbContext.SaveChangesAsync();
+    }
+}
+
+file class AssignmentComparer(FilterBy filterBy) : IComparer<Assignment>
+{
+    public int Compare(Assignment? x, Assignment? y)
+    {
+        return filterBy switch
+        {
+            FilterBy.Priority => x?.Priority.CompareTo(y?.Priority) ?? 0,
+            FilterBy.CreationDate => x?.Created.CompareTo(y?.Created) ?? 0,
+            _ => 0
+        };
     }
 }

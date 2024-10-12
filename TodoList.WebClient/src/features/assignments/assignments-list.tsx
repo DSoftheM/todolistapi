@@ -10,12 +10,32 @@ import { Link } from "react-router-dom"
 import { Nav } from "../../nav"
 import { Assignment, AssignmentPriority, assignmentPriorityToString } from "./types/assignment"
 
+function filterByToString(type: FilterBy) {
+    switch (type) {
+        case FilterBy.CreationDate:
+            return "Дата создания"
+        case FilterBy.Priority:
+            return "Приоритет"
+    }
+}
+
+enum FilterBy {
+    Priority = "priority",
+    CreationDate = "creationDate",
+}
+
 export function TasksList() {
     const [term, setTerm] = useState("")
+    const [filterBy, setFilterBy] = useState(FilterBy.CreationDate)
 
     const allQuery = useQuery<Assignment[]>({
-        queryKey: ["all-tasks", term],
-        queryFn: async () => (await httpClient.get("/task/getAll?term=" + term)).data,
+        queryKey: ["all-tasks", term, filterBy],
+        queryFn: async () => {
+            const queryParams = new URLSearchParams()
+            queryParams.append("term", term)
+            queryParams.append("filterBy", filterBy)
+            return (await httpClient.get("/task/getAll?" + queryParams)).data
+        },
     })
 
     const renderBody = () => {
@@ -44,6 +64,21 @@ export function TasksList() {
                         variant="borderless"
                         onChange={(e) => setTerm(e.target.value)}
                     />
+                    <div>
+                        <Typography.Title level={5}>Фильтр</Typography.Title>
+                        <Select
+                            value={filterBy}
+                            allowClear
+                            style={{ width: "100%" }}
+                            placeholder="Фильтр"
+                            onChange={(_ids, items) => {
+                                setFilterBy(_ids)
+                            }}
+                            options={Object.values(FilterBy).map((key) => {
+                                return { label: filterByToString(key), value: key }
+                            })}
+                        />
+                    </div>
                 </div>
                 {renderBody()}
             </Flex>

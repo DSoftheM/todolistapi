@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Domain.Entity;
+using TodoList.Domain.Enum;
 using TodoList.Filers;
 using TodoList.Service.TaskService;
 
@@ -13,9 +14,9 @@ public class AssignmentController(AssignmentService assignmentService, Assignmen
 {
     [Route("getAll")]
     // [Authorize]
-    public async Task<List<AssignmentSiteDto>> GetAll(string term = "")
+    public async Task<List<AssignmentSiteDto>> GetAll(string term = "", FilterBy filterBy = FilterBy.CreationDate)
     {
-        return await assignmentService.GetAll(term);
+        return await assignmentService.GetAll(term, filterBy);
     }
 
     [Route("create")]

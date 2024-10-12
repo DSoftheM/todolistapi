@@ -42,10 +42,10 @@ export function RegistrationForm() {
     )
 }
 
-type CheckPasswordProps = {
-    password: string
-}
+// type CheckPasswordProps = {
+//     password: string
+// }
 
-function CheckPassword(props: CheckPasswordProps) {
-    return <Flex vertical>123</Flex>
-}
+// function CheckPassword(props: CheckPasswordProps) {
+//     return <Flex vertical>123</Flex>
+// }
